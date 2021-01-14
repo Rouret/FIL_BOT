@@ -1,8 +1,9 @@
 module.exports = {
-    name: 'c',
+    name: 'clear',
     description: 'supprime TOUT, genre une BOMBE BOUMMMM',
     admin: true,
-    theme: "admin",
+    aliases: ['c', 'clear', "cls"],
+    theme: "Administration",
     execute(client, api, config, message, args) {
         message.delete()
         if (message.member.roles.cache.find(r => r.name == "Admin")) {

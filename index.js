@@ -2,6 +2,7 @@
 const Discord = require('discord.js');
 const fs = require('fs');
 const config = require('./config.json');
+const commonInfo = require('./constants/common.json');
 const api = ""
     // create a new discord client
 const client = new Discord.Client();
@@ -47,9 +48,42 @@ client.on('message', message => {
         command.execute(client, api, config, message, args);
     } catch (error) {
         console.error(error);
-        message.channel.send('WOAOAOAOOAAOOAOAAO NOOOONNN une erreur <@259817328458334211> aide moi ');
+        message.channel.send('Heu ... petite erreur interne ... <@259817328458334211> ALED ');
+        console.log(message)
+        client.channels.cache.find(channel => channel.id === commonInfo.ADMIN_CHANNEL).send({
+            embed: {
+                color: 0x0099ff,
+                title: "ERROR REPORT",
+                fields: [{
+                        name: 'TYPE',
+                        value: error.name,
+                    },
+                    {
+                        name: 'MESSAGE',
+                        value: error.message,
+                    },
+                    {
+                        name: 'MESSAGE',
+                        value: `https://discord.com/channels/${commonInfo.SERVER_ID}/${message.channel.id}/${message.id}`,
+                    }
+
+                    //`https://discord.com/channels/${server}/${channel}/${message}`
+                    //https://discord.com/channels/601518534891143207/748567621749964862/799311240018657300
+
+
+                ],
+                timestamp: new Date(),
+                footer: {
+                    icon_url: client.user.avatarURL(),
+                    text: commonInfo.NAME
+                }
+            }
+        })
+
     }
 
 });
 
 client.login(config.token);
+
+//TODO commande agenda
