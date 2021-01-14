@@ -2,7 +2,7 @@ const fetch = require("node-fetch");
 const config = require('../config.json');
 module.exports = {
     name: 'joke',
-    admin: true,
+    admin: false,
     aliases: ['blague', 'vasyfaitmoirire'],
     description: 'Petite blague, sur un theme aléatoire',
     theme: "Fun",

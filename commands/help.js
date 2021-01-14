@@ -14,7 +14,7 @@ module.exports = {
     description: 'Liste les commandes',
     aliases: ['h'],
     cooldown: 5,
-    admin: true,
+    admin: false,
     theme: "Basic",
     execute(client, api, config, message, args) {
         message.delete()
