@@ -4,7 +4,7 @@ module.exports = {
     name: 'ip',
     description: 'Adresse ip du serveur GrallCraft',
     theme: "Gaming",
-    admin: true,
+    admin: false,
     aliases: ["cquoilip", "jeveuxjouerstp", "raboulelipstp"],
     execute(client, api, config, message, args) {
         message.channel.send({
