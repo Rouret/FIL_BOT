@@ -31,11 +31,7 @@ client.on('message', message => {
 
     //event
     if (message.content.match(/!s/)) {
-        if (message.author.id === '489032872355823626' || message.author.id === '626056738038087691') {
-            message.channel.send(':warning: ELLE RIGOLE :warning: (l\'autrice indique que le sarcasme a été utilisé)');
-        } else {
-            message.channel.send(':warning: IL RIGOLE :warning: (l\'auteur indique que le sarcasme a été utilisé)');
-        }
+        message.react('⚠');
     }
 
     if (message.content[0] != PREFIX) return;
